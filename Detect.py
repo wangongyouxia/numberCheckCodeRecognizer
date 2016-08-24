@@ -6,17 +6,19 @@ import numpy as np
 def Detect(imgFileName,outputFileName):
 	img = cv2.imread(imgFileName)
 	b,g,r = cv2.split(img)
+	ret,g = cv2.threshold(g,180,255,cv2.THRESH_BINARY_INV)
+	cv2.imwrite(outputFileName,g)
+	return g
 #blur = b
 #b = cv2.blur(b,(3,3))
 #ret,b = cv2.threshold(b,180,255,cv2.THRESH_BINARY)
 
 #blur = cv2.bilateralFilter(blur,9,75,75)
 #ret,b = cv2.threshold(b,180,255,cv2.THRESH_BINARY)
-	ret,g = cv2.threshold(g,180,255,cv2.THRESH_BINARY_INV)
+	
 #ret,r = cv2.threshold(r,180,255,cv2.THRESH_BINARY)
 #cv2.imwrite('b_output.jpg',b)
-	cv2.imwrite(outputFileName,g)
-	return g
+
 #cv2.imwrite('r_output.jpg',r)
 #cv2.imwrite('blur_output.jpg',blur)
 #img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
