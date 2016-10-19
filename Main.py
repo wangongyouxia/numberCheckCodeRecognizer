@@ -15,7 +15,7 @@ def Test():
 	if CheckCode == '-1':
 		print('识别失败')
 		exit(-1)
-	Learn(20)
+	Learn(learnNum)
 	print (CheckCode)
 
 if __name__ == '__main__':
